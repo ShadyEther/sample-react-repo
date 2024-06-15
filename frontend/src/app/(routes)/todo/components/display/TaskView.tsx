@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { Container, Typography, Grid, TextField, FormControl, InputLabel, Select, MenuItem, Chip, ListItemText, Checkbox, SelectChangeEvent } from '@mui/material';
+import { Container, Typography, Grid, TextField, FormControl, InputLabel, Select, MenuItem, Chip, ListItemText, Checkbox, SelectChangeEvent, AppBar, Icon, Avatar, Toolbar } from '@mui/material';
 import SortRoundedIcon from '@mui/icons-material/SortRounded';
 import FilterAltRoundedIcon from '@mui/icons-material/FilterAltRounded';
 import TaskCard from './TaskCard';
@@ -68,9 +68,7 @@ const TaskView: React.FC<TaskViewProps> = ({ tasks, updateTask, removeTask }) =>
 
 
   function handleDisplay(keyword: string, filters: FilterList[]) {
-    //find the list after searching
-    //from that list apply filters one by one ..
-    //last find itersection of all
+    
     let searchedTasks: Task[] = tasks
     if (keyword) {
       searchedTasks = searchTasks(tasks, keyword)
@@ -136,6 +134,7 @@ const TaskView: React.FC<TaskViewProps> = ({ tasks, updateTask, removeTask }) =>
 
     if (!displayList || displayList.length === 0) {
       return (
+
         <Container sx={{
           display: 'flex',
           justifyContent: 'center',
@@ -169,75 +168,93 @@ const TaskView: React.FC<TaskViewProps> = ({ tasks, updateTask, removeTask }) =>
 
   return (
     <div>
-      <Container>
-        <Grid container spacing={2} justifyContent='center'>
-          <Grid item xs={12} sm={7} md={7}>
+      <AppBar
+      position='sticky'
+      sx={{
+        bgcolor:'white',
+        paddingTop:'2%',
+        paddingBottom:'1%'
+      }}
+      >
+        <Toolbar>
+          
+        <Container>
+          <Grid container spacing={2} justifyContent='center'>
+            <Grid item xs={12} sm={7} md={7}>
+              <TextField
+                label='Search 🔍'
+                value={searchKeyword}
+                onChange={(e) => { setSearchKeyword(e.target.value) }}
+                fullWidth
+              />
+            </Grid>
 
-            <TextField
-              label='Search 🔍'
-              value={searchKeyword}
-              onChange={(e) => { setSearchKeyword(e.target.value) }}
-              fullWidth
-            />
-          </Grid>
+            <Grid item xs={12} sm={5} md={5}>
+              <FormControl fullWidth>
+                <InputLabel id="priority-label">Filter 🔻</InputLabel>
+                <Select
+                  label="Filter 🔻"
+                  multiple
+                  value={filterList}
+                  onChange={handleFilters}
+                  renderValue={(selected) => (
+                    <>{
+                      selected.map((item) => {
+                        const itemlabel = JSON.parse(item).label;
+                        return <Chip label={itemlabel} sx={{ marginLeft: '1em' }} />
+                      })
+                    }
+                    </>
+                  )}
 
-          <Grid item xs={12} sm={5} md={5}>
-            <FormControl fullWidth>
-              <InputLabel id="priority-label">Filter 🔻</InputLabel>
-              <Select
-                label="Filter 🔻"
-                multiple
-                value={filterList}
-                onChange={handleFilters}
-                renderValue={(selected) => (
-                  <>{
-                    selected.map((item) => {
-                      const itemlabel = JSON.parse(item).label;
-                      return <Chip label={itemlabel} sx={{ marginLeft: '1em' }} />
-                    })
-                  }
-                  </>
-                )}
-
-                MenuProps={{
-                  sx: {
-                    "&& .Mui-selected": {
-                      '&::after': {
-                        content: '"✔️ "',                        
+                  MenuProps={{
+                    sx: {
+                      "&& .Mui-selected": {
+                        '&::after': {
+                          content: '"✔️ "',
+                        }
                       }
                     }
-                  }
-                }}
-              >
-                <MenuItem value={JSON.stringify({ priority: 1, label: 'High' })}>
-                  High
-                </MenuItem>
-                <MenuItem value={JSON.stringify({ priority: 2, label: 'Medium' })}>
-                  Medium
-                </MenuItem>
-                <MenuItem value={JSON.stringify({ priority: 3, label: 'Low' })}>
-                  Low
-                </MenuItem>
-                <MenuItem value={JSON.stringify({ status: true, label: 'Complete' })}>
-                  Completed
-                </MenuItem>
-                <MenuItem value={JSON.stringify({ status: false, label: 'Incomplete' })}>
-                  Incomplete
-                </MenuItem>
+                  }}
+                >
+                  <MenuItem value={JSON.stringify({ priority: 1, label: 'High' })}>
+                    High
+                  </MenuItem>
+                  <MenuItem value={JSON.stringify({ priority: 2, label: 'Medium' })}>
+                    Medium
+                  </MenuItem>
+                  <MenuItem value={JSON.stringify({ priority: 3, label: 'Low' })}>
+                    Low
+                  </MenuItem>
+                  <MenuItem value={JSON.stringify({ status: true, label: 'Complete' })}>
+                    Completed
+                  </MenuItem>
+                  <MenuItem value={JSON.stringify({ status: false, label: 'Incomplete' })}>
+                    Incomplete
+                  </MenuItem>
 
-              </Select>
-            </FormControl>
+                </Select>
+              </FormControl>
+
+
+            </Grid>
 
 
           </Grid>
+        </Container>
 
+        </Toolbar>
+        
+      </AppBar>
 
-        </Grid>
-
-      </Container>
-      <Container sx={{
-        marginTop: '1%'
-      }}>
+                  
+      <Container 
+      
+      
+      sx={{
+        marginTop:'3%'
+      }}
+      >
         {finalDisplay()}
       </Container>
 

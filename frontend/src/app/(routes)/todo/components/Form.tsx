@@ -16,36 +16,33 @@ const Form: React.FC<FormProps> = ({ saveTask }) => {
     const [taskName, setTaskName] = useState('');
     const [deadline, setDeadline] = useState('');
     const [priority, setPriority] = useState<number | undefined>(1); // Default to High priority
+    
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         if (!taskName.trim() || !deadline || !priority) {
-            return; // Don't add task if fields are empty
+            return; 
         }
         const id = Date.now();
 
-        // Save task via parent component callback
+        
         saveTask({
             id,
             taskName,
             deadline,
             priority,
-            status: false, // Assuming status is default false (not completed)
+            status: false, 
         });
 
-        // Reset form fields after submission
+        alert('Task added');
         setTaskName('');
         setDeadline('');
         setPriority(1);
     };
 
     return (
-        <Container
-        sx={{
-            // position:'absolute'
-        }}
-        
+        <Container      
         >
             <form onSubmit={handleSubmit}>
                 <Grid container spacing={2} padding={'2%'} justifyContent={'center'} alignItems={'center'}>

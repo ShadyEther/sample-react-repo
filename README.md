@@ -41,7 +41,7 @@ you should have node installed
 
 ## Week 2: Todo List App
 
-### Navigate to /auth to view the page
+### Navigate to /todo to view the page
 
 - [MaterialUI](https://mui.com/material-ui) used for components
 

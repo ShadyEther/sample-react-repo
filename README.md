@@ -54,3 +54,23 @@ you should have node installed
 ### Demo
 
 ![Demo](https://github.com/ShadyEther/sample-react-repo/blob/main/readme_media/cap_8_gif.gif?raw=true) 
+
+## Week 3: Dashboard
+
+### Navigate to /dashboard to view the page
+
+- [MaterialUI](https://mui.com/material-ui) used for components
+
+- [Redux](https://redux.js.org/) used for state management
+
+- It has  different views 
+
+    - Table View
+    - Charts
+    - Kanban Board
+    - Calendars
+
+- It uses llocalData for it database.
+
+- It has customizable theme
+

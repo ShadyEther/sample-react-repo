@@ -25,7 +25,7 @@ export default function Home(){
         border: 'solid',
         margin: '2%',
       }}>
-      <Typography variant="h7" align="center">
+      <Typography variant="h6" align="center">
       <Link href="/auth">Registration Form using Regex Validation-Assignment 1</Link>
       </Typography>
         
@@ -36,8 +36,19 @@ export default function Home(){
         border: 'solid',
         margin: '2%',
       }}>
-      <Typography variant="h7" align="center">
+      <Typography variant="h6" align="center">
       <Link href="/todo">ToDo List-Assignment 2</Link>
+      </Typography>
+        
+      </Card>
+      <Card
+      sx={{
+        padding:'2%',
+        border: 'solid',
+        margin: '2%',
+      }}>
+      <Typography variant="h6" align="center">
+      <Link href="/dashboard">Dashboard-Assignment 3</Link>
       </Typography>
         
       </Card>

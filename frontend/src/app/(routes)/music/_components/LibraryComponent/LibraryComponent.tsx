@@ -1,10 +1,10 @@
 import React from 'react'
 import LibraryContainer from './LibraryContainer'
 
-function DrawerComponent() {
+function LibraryComponent() {
   return (
     <LibraryContainer/>
   )
 }
 
-export default DrawerComponent
+export default LibraryComponent

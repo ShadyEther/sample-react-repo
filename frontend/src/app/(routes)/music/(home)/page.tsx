@@ -1,49 +1,36 @@
-import { AppBar, Box, Container, CssBaseline, Drawer, Typography } from '@mui/material'
+
+
+import { AppBar, Avatar, Badge, Box, Chip, Container, Toolbar, Typography } from '@mui/material'
+import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded';
 import React from 'react'
-import DrawerComponent from '../_components/DrawerComponent/DrawerComponent'
-import CornerNavbar from '../_components/CornerNavbar/CornerNavbar'
-import MusicPlayer from '../_components/MusicPlayer/MusicPlayer'
-
-function home() {
-    return (
-        <>
-            <Box sx={{ display: 'flex' }}>
-                <Box sx={{ width: '240px'}}>
-                    <Drawer
-                        variant="permanent"
-                        open
-
-                    >
-                        <CornerNavbar />
-                        <Box>
-                            <DrawerComponent />
-                        </Box>
-                    </Drawer>
-
-                </Box>
-
-                <Box
-                >
-                    <Typography paragraph>
-                        hehe
-                    </Typography>
-                </Box>
+import HomeViewComponent from './_components/HomeViewComponent';
 
 
-
-
-            </Box>
-
-
-            <Drawer
-                anchor='bottom'
-                open
-                variant='permanent'
-            >
-                <MusicPlayer />
-            </Drawer>
-        </>
-    )
+function page() {
+  return (
+    <>
+    <AppBar 
+    position='sticky'
+    >
+        <Toolbar>
+            <Container>
+                <Typography>Explore</Typography>
+                <Chip label="All"/>
+                <Chip label="Year"/>
+                <Chip label="Genre"/>
+            </Container>
+            <Badge variant='dot'>
+                <NotificationsNoneRoundedIcon/>
+            </Badge>
+            <Avatar/>
+            
+        </Toolbar>
+    </AppBar>
+    <Box>
+        <HomeViewComponent/>
+    </Box>
+    </>
+  )
 }
 
-export default home
+export default page

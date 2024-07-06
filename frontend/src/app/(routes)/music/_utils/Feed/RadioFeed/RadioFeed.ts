@@ -8,7 +8,12 @@ export const getRadioFeed=async ()=>{
   const options = {
     method: 'GET',
     url: '/radios/',
-    params: {client_id: process.env.NEXT_PUBLIC_JAMENDO_CLIENT_ID},
+    params: {
+      client_id: process.env.NEXT_PUBLIC_JAMENDO_CLIENT_ID,
+      // imagesize: '200',
+      limit:'5'
+
+    },
   };
     var radiofeed=[]
     try{

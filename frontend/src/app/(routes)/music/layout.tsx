@@ -31,6 +31,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
                 <Box
                 sx={{
                     width:'100%',
+                    marginBottom:'5em',
                 }}
                 >
                     {children}
@@ -48,6 +49,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
                 variant='permanent'
             >
                 <MusicPlayer />
+                
             </Drawer>
                 
             </body>

@@ -52,6 +52,17 @@ export default function Home(){
       </Typography>
         
       </Card>
+      <Card
+      sx={{
+        padding:'2%',
+        border: 'solid',
+        margin: '2%',
+      }}>
+      <Typography variant="h6" align="center">
+      <Link href="/music">Music Player (Spotify Clone) </Link>
+      </Typography>
+        
+      </Card>
     </Box>
 
     </Container>

@@ -74,3 +74,17 @@ you should have node installed
 
 - It has customizable theme
 
+
+## Week 4: Music Player
+
+### Navigate to /music to view the page
+
+- [MaterialUI](https://mui.com/material-ui) used for components
+
+- [Redux](https://redux.js.org/) used for state management
+
+- It uses the [Jamendo Api](https://developer.jamendo.com/) for its music database
+
+- Similar to Spotify UX
+
+- Has Albums, Playlists, and a Music Player

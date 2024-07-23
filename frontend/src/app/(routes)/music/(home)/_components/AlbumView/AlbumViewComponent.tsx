@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Chip, Container, ListItem, Tooltip, Typography } from '@mui/material';
 import { getAlbumFeed } from '../../../_utils/Feed/AlbumFeed/AlbumFeed';
+import { useRouter } from 'next/navigation';
 
 const AlbumViewComponent = () => {
   const [albumFeed, setAlbumFeed] = useState([]);
-
+  const router = useRouter()
   useEffect(() => {
     const fetchAlbumFeed = async () => {
       const feed = await getAlbumFeed();
@@ -68,7 +69,7 @@ const AlbumViewComponent = () => {
         </>
       )
     }
-    else return "No Album Feed"
+    else return "No Album Feed or is Loading.. it takes some time"
   }
 
 
@@ -85,7 +86,7 @@ const AlbumViewComponent = () => {
         <Typography variant='h5'>Albums</Typography>
           </Box>
           <Box>
-            <Button>
+            <Button onClick={()=>{router.push('/music/albums')}}>
               Show More
             </Button>
           </Box>

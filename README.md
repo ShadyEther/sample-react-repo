@@ -88,3 +88,10 @@ you should have node installed
 - Similar to Spotify UX
 
 - Has Albums, Playlists, and a Music Player
+
+## Week 5: E-commerce Store
+
+### Navigate to /store to view the page
+
+- [MaterialUI](https://mui.com/material-ui) used for components
+
